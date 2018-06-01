@@ -22,7 +22,3 @@ else { ;search using google search
 clipboard := clip ;put the last copied thing back in the clipboard
 return
 
-; KEY MAPPINGS
-
-::gg:: GGWP :) Recuerden dar gracias al Padre, porque en Cristo tenemos la fortaleza necesaria para afrontar las dificultades de la vida. Con él somos vencedores. Amén.
-
