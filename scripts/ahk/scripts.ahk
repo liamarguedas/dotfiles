@@ -1,4 +1,13 @@
-﻿^e:: ; change to preferred hotkey
+﻿; SEND | WITH ALT E
+
+!e:: 
+send, |
+return
+
+
+; GOOGLE SEARCH WITH CTRL+E
+
+^e:: ; change to preferred hotkey
 clip := clipboard
 send, ^c
 url := "https://www.google.com/search?q="
@@ -13,4 +22,7 @@ else { ;search using google search
 clipboard := clip ;put the last copied thing back in the clipboard
 return
 
+; KEY MAPPINGS
+
 ::gg:: GGWP :) Recuerden dar gracias al Padre, porque en Cristo tenemos la fortaleza necesaria para afrontar las dificultades de la vida. Con él somos vencedores. Amén.
+
