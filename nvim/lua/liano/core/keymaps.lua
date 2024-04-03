@@ -4,6 +4,7 @@ local keymap = vim.keymap
 
 -- general keymaps
 
+keymap.set("v", "qq", "<ESC>") -- qq to go to normal in visual
 keymap.set("i", "qq", "<ESC>") -- qq to go to normal mode
 keymap.set("n", "x", '"_x') -- Delete single character but not copy it
 
