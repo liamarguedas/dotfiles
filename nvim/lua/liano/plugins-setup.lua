@@ -95,6 +95,9 @@ return packer.startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
+	-- multi-cursors
+	use({ "mg979/vim-visual-multi", branch = "master" })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
