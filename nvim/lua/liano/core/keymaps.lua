@@ -5,7 +5,9 @@ local keymap = vim.keymap
 -- general keymaps
 
 keymap.set("v", "qq", "<ESC>") -- qq to go to normal in visual
-keymap.set("i", "qq", "<ESC>") -- qq to go to normal mode
+keymap.set("i", "qq", "<ESC>") -- qq to go to normal mode in insert
+keymap.set("c", "qq", "<ESC>") -- qq to go to normal mode in command
+
 keymap.set("n", "x", '"_x') -- Delete single character but not copy it
 
 -- num increment/decrement
@@ -34,4 +36,4 @@ keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
 -- enable highlight
-keymap.set("n", "<leader>i", "<cmd>TSEnable highlight<CR>")
+keymap.set("n", "<leader>o", "<cmd>TSEnable highlight<CR>")
