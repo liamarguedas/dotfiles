@@ -37,7 +37,9 @@ return packer.startup(function(use)
 
 	use("kyazdani42/nvim-web-devicons") -- icons in tree-view
 
-	use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
+	use({ "catppuccin/nvim", as = "catppuccin" }) -- preferred colorscheme
+
+	--use("folke/tokyonight.nvim") -- preferred colorscheme
 
 	use("numToStr/Comment.nvim") -- comment lines with gc
 
