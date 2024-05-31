@@ -37,7 +37,8 @@ return packer.startup(function(use)
 
 	use("kyazdani42/nvim-web-devicons") -- icons in tree-view
 
-	use({ "catppuccin/nvim", as = "catppuccin" }) -- preferred colorscheme
+	use("scottmckendry/cyberdream.nvim")
+	-- use({ "catppuccin/nvim", as = "catppuccin" }) -- preferred colorscheme
 
 	--use("folke/tokyonight.nvim") -- preferred colorscheme
 

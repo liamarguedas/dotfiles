@@ -1,58 +1,47 @@
-local catppuccin_setup, catppuccin = pcall(require, "catppuccin")
-if not catppuccin_setup then
+local cyberdream_setup, cyberdream = pcall(require, "cyberdream")
+if not cyberdream_setup then
 	return
 end
 
-catppuccin.setup({
-	flavour = "auto", -- latte, frappe, macchiato, mocha
-	background = { -- :h background
-		light = "latte",
-		dark = "mocha",
-	},
-	transparent_background = false, -- disables setting the background color.
-	show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-	term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
-	dim_inactive = {
-		enabled = false, -- dims the background color of inactive window
-		shade = "dark",
-		percentage = 0.15, -- percentage of the shade to apply to the inactive window
-	},
-	no_italic = false, -- Force no italic
-	no_bold = false, -- Force no bold
-	no_underline = false, -- Force no underline
-	styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-		comments = { "italic" }, -- Change the style of comments
-		conditionals = { "italic" },
-		loops = {},
-		functions = {},
-		keywords = {},
-		strings = {},
-		variables = {},
-		numbers = {},
-		booleans = {},
-		properties = {},
-		types = {},
-		operators = {},
-		-- miscs = {}, -- Uncomment to turn off hard-coded styles
-	},
-	color_overrides = {},
-	custom_highlights = {},
-	default_integrations = true,
-	integrations = {
-		cmp = true,
-		gitsigns = true,
-		nvimtree = true,
-		treesitter = true,
-		notify = false,
-		mini = {
-			enabled = true,
-			indentscope_color = "",
+require("cyberdream").setup({
+	-- Enable transparent background
+	transparent = true, -- Default: false
+
+	-- Enable italics comments
+	italic_comments = true, -- Default: false
+
+	-- Replace all fillchars with ' ' for the ultimate clean look
+	hide_fillchars = true, -- Default: false
+
+	-- Modern borderless telescope theme
+	borderless_telescope = true, -- Default: true
+
+	-- Set terminal colors used in `:terminal`
+	terminal_colors = true, -- Default: true
+
+	theme = { -- Default: nil
+		highlights = {
+			-- Highlight groups to override, adding new groups is also possible
+			-- See `:help highlight-groups` for a list of highlight groups
+
+			-- Example:
+			Comment = { fg = "#696969", bg = "NONE", italic = true },
+
+			-- Complete list can be found in `lua/cyberdream/theme.lua`
 		},
-		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+
+		-- Override a color entirely
+		colors = {
+			-- For a list of colors see `lua/cyberdream/colours.lua`
+			-- Example:
+			bg = "#000000",
+			green = "#00ff00",
+			magenta = "#ff00ff",
+		},
 	},
 })
 
-local status, _ = pcall(vim.cmd, "colorscheme catppuccin")
+local status, _ = pcall(vim.cmd, "colorscheme cyberdream")
 if not status then
 	print("Colorscheme not found")
 	return
