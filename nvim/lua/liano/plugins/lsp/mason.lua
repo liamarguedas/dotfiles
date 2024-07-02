@@ -1,47 +1,54 @@
-local mason_status, mason = pcall(require, "mason")
-if not mason_status then
-	return
-end
+return {
+  "williamboman/mason.nvim",
+  dependencies = {
+    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+  },
+  config = function()
+    -- import mason
+    local mason = require("mason")
 
-local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status then
-	return
-end
+    -- import mason-lspconfig
+    local mason_lspconfig = require("mason-lspconfig")
 
-local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
-if not mason_null_ls_status then
-	return
-end
+    local mason_tool_installer = require("mason-tool-installer")
 
-mason.setup()
+    -- enable mason and configure icons
+    mason.setup({
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+    })
 
-mason_lspconfig.setup({
-	ensure_installed = {
-		-- web dev
-		"html",
-		"cssls",
-		"quick_lint_js",
-		"emmet_ls",
+    mason_lspconfig.setup({
+      -- list of servers for mason to install
+      ensure_installed = {
+        "tsserver",
+        "html",
+        "cssls",
+        "tailwindcss",
+        "svelte",
+        "lua_ls",
+        "graphql",
+        "emmet_ls",
+        "prismals",
+        "pyright",
+      },
+    })
 
-		-- lua
-		"lua_ls",
-
-		-- python
-		"pyright",
-		-- "basedpyright",
-		-- "pylsp",
-		-- "ruff_lsp",
-
-		-- rust
-		"rust_analyzer",
-	},
-})
-
-mason_null_ls.setup({
-	ensure_installed = {
-		"prettier",
-		"stylua",
-		"pylint",
-		"eslint_d",
-	},
-})
+    mason_tool_installer.setup({
+      ensure_installed = {
+        "prettier", -- prettier formatter
+        "stylua", -- lua formatter
+        "isort", -- python formatter
+        "black", -- python formatter
+        "pylint",
+        "eslint_d",
+      },
+    })
+  end,
+}
