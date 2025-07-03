@@ -7,6 +7,9 @@ local keymap = vim.keymap
 keymap.set("v", "qq", "<ESC>") -- qq to go to normal in visual
 keymap.set("i", "qq", "<ESC>") -- qq to go to normal mode in insert
 keymap.set("c", "qq", "<ESC>") -- qq to go to normal mode in command
+keymap.set("v", "QQ", "<ESC>") -- qq to go to normal in visual
+keymap.set("i", "QQ", "<ESC>") -- qq to go to normal mode in insert
+keymap.set("c", "QQ", "<ESC>") -- qq to go to normal mode in command
 keymap.set("n", "x", '"_x') -- Delete single character but not copy it
 keymap.set("n", "q", "<Nop>", { noremap = true, silent = true })
 -- num increment/decrement
