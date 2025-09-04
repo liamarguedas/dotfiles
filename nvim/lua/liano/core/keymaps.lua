@@ -1,6 +1,15 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
+local toggle_virtual_text = function()
+	local current = vim.diagnostic.config().virtual_text
+	vim.diagnostic.config({ virtual_text = not current })
+	if not current then
+		vim.notify("Virtual text enabled")
+	else
+		vim.notify("Virtual text disabled")
+	end
+end
 
 -- general keymaps
 
@@ -28,6 +37,9 @@ keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
 -- file explorer management
 keymap.set("n", "<leader>q", ":NvimTreeToggle<CR>") -- Open File Explorer
+
+-- show/hide Erros
+keymap.set("n", "<leader>z", toggle_virtual_text, { desc = "Toggle LSP virtual text" })
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
