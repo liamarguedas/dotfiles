@@ -154,9 +154,16 @@ return {
 					capabilities = capabilities,
 					settings = {
 						python = {
+							venvPath = ".",
+							venv = ".venv",
+							pythonPath = "./.venv/Scripts/python.exe",
 							analysis = {
 								typeCheckingMode = "basic",
-								reportMissingModuleDocstring = "none", -- disable missing module docstring warning
+								reportMissingModuleDocstring = "none",
+								reportMissingClassDocstring = "none",
+								reportMissingFunctionDocstring = "none",
+								reportMissingParameterType = "none", -- optional
+								reportMissingTypeStubs = "none",
 								reportEmptyDocstring = "none", -- disable empty docstring warning
 							},
 						},
